@@ -1,0 +1,6 @@
+config USB_CHARGING_SWITCH
+	tristate "MTK USWITCH Support"
+	default n
+	help
+	  Say Y here if you have Eastaeon uswitch device.
+	  If unsure, say Y.

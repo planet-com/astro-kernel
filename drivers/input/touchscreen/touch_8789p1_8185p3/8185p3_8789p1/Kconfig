@@ -1,0 +1,152 @@
+#
+# Himax Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_HIMAX_I2C
+        bool "HIMAX chipset i2c touchscreen"
+	help
+	  This enables support for HIMAX CHIPSET over I2C based touchscreens.
+	  when turn this option on, TOUCHSCREEN_HIMAX_I2C touch driver
+	  will open.
+	  If unsure,say N.
+
+config TOUCHSCREEN_HIMAX_COMMON
+        bool "HIMAX chipset common touchscreen"
+	depends on TOUCHSCREEN_HIMAX_CHIPSET
+	help
+	  Say Y here to enable support for I2C based touchscreens.
+	  To compile this driver as a module, choose M here: the
+	  module will be called HimaxChipsetTs.
+
+config TOUCHSCREEN_HIMAX_INCELL
+        bool "HIMAX chipset in-cell function"
+	depends on TOUCHSCREEN_HIMAX_COMMON
+	help
+	  if you want to use on-cell function, you must set the config.
+	  If unsure, not set it.
+	  there are some on-cell function in the code of Himax touch.
+	  choose the config here to support for the on-cell function.
+
+config TOUCHSCREEN_HIMAX_IC_HX852xH
+        tristate "HIMAX chipset HX852xH function"
+	depends on TOUCHSCREEN_HIMAX_ONCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX852xH, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX852xH.
+
+config TOUCHSCREEN_HIMAX_IC_HX852xG
+        tristate "HIMAX chipset HX852xG function"
+	depends on TOUCHSCREEN_HIMAX_ONCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX852xG, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX852xG.
+
+config TOUCHSCREEN_HIMAX_IC_HX83192
+        tristate "HIMAX chipset HX83192 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83192, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83192.
+
+config TOUCHSCREEN_HIMAX_IC_HX83191
+        tristate "HIMAX chipset HX83191 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83191, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83191.
+
+config TOUCHSCREEN_HIMAX_IC_HX83113
+        tristate "HIMAX chipset HX83113 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83113, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83113.
+
+config TOUCHSCREEN_HIMAX_IC_HX83112
+        tristate "HIMAX chipset HX83112 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83112, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83112.
+
+config TOUCHSCREEN_HIMAX_IC_HX83111
+        tristate "HIMAX chipset HX83111 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83111, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83111.
+
+config TOUCHSCREEN_HIMAX_IC_HX83106
+        tristate "HIMAX chipset HX83106 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83106, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83106.
+
+config TOUCHSCREEN_HIMAX_IC_HX83103
+        tristate "HIMAX chipset HX83103 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83103, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83103.
+
+config TOUCHSCREEN_HIMAX_IC_HX83102
+        tristate "HIMAX chipset HX83102 function"
+	depends on TOUCHSCREEN_HIMAX_INCELL
+	help
+	  if you want to use HIMAX CHIPSET of HX83102, you should set the config.
+	  If unsure, not set it.
+	  if you want to compile this driver as a module, choose M here.
+	  choose the config here to support for the HX83102.
+
+config TOUCHSCREEN_HIMAX_DEBUG
+        bool "HIMAX debug function"
+	help
+	  This enables support for HIMAX debug function.
+	  when turn this option on, driver will open some debug function.
+	  will open.
+	  If unsure,say N.
+
+config TOUCHSCREEN_HIMAX_INSPECT
+        bool "HIMAX inspect function"
+	depends on TOUCHSCREEN_HIMAX_INCELL || TOUCHSCREEN_HIMAX_ONCELL
+	help
+	  if you want to use HIMAX debug function of HMIAX TOUCH driver,
+	  you should set the config.
+
+	  If unsure, not set it.
+
+	  choose the config here to support for the HIMAX debug function.
+
+config TOUCHSCREEN_HIMAX_EMBEDDED_FIRMWARE
+	bool "HIMAX embedded firmware function"
+	depends on TOUCHSCREEN_HIMAX_INCELL || TOUCHSCREEN_HIMAX_ONCELL
+	help
+	  if you want to enable built-in FW inside kernel as binary array,
+	  you should set the config.
+	  If unsure, not set it.
+	  This enables built-in FW inside kernel as binary array
+
+config HMX_DB
+	bool "HIMAX driver test over Dragon Board"
+	depends on TOUCHSCREEN_HIMAX_COMMON
+	help
+	  This enables support for HIMAX driver test over Dragon Board.

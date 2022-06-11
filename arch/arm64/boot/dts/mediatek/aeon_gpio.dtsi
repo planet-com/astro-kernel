@@ -1,0 +1,230 @@
+/*
+ * eastaeon's GPIO SoC device tree source
+ * sanford.lin
+ */
+
+&aeon_gpio {
+    pinctrl-names = "default",
+            "aeon_spk_en0", "aeon_spk_en1", "sim_rst_low", "sim_rst_high", "sil9022_hdmi_pwren0","sil9022_hdmi_pwren1",
+			"keyboardlight_gpio_low","keyboardlight_gpio_pwm", "fusb301a_sw_en_low", "fusb301a_sw_en_high", "fusb301a_sw_sel_low", "fusb301a_sw_sel_high",
+			"usbl_chg_en_low", "usbl_chg_en_high", "lt8912_pwren_low", "lt8912_pwren_high", "lt8912_rst_low", "lt8912_rst_high", "hdmi_hpd_state",
+			"wireless_chg_en_low", "wireless_chg_en_high", "usb_sw_low", "usb_sw_high", "hdmi_usb_sw_low", "hdmi_usb_sw_high", "usbl_charger_state";
+			
+    pinctrl-0 = <&aeon_pins_default>;
+    pinctrl-1 = <&aeon_pins_spk_en0_gpio>;
+    pinctrl-2 = <&aeon_pins_spk_en1_gpio>;
+	pinctrl-3 = <&aeon_pins_sim_rst_low_gpio>;
+	pinctrl-4 = <&aeon_pins_sim_rst_high_gpio>;
+	pinctrl-5 = <&aeon_sil9022_hdmi_pwren_low>;
+	pinctrl-6 = <&aeon_sil9022_hdmi_pwren_high>;
+	pinctrl-7 = <&aeon_keyboardlight_gpio_low>;
+	pinctrl-8 = <&aeon_keyboardlight_gpio_pwm>;
+	pinctrl-9 = <&aeon_fusb301a_sw_en_low>;
+	pinctrl-10 = <&aeon_fusb301a_sw_en_high>;
+	pinctrl-11 = <&aeon_fusb301a_sw_sel_low>;
+	pinctrl-12 = <&aeon_fusb301a_sw_sel_high>;
+	pinctrl-13 = <&aeon_usbl_chg_en_low>;
+	pinctrl-14 = <&aeon_usbl_chg_en_high>;
+	pinctrl-15 = <&aeon_lt8912_pwren_low>;
+	pinctrl-16 = <&aeon_lt8912_pwren_high>;
+	pinctrl-17 = <&aeon_lt8912_rst_low>;
+	pinctrl-18 = <&aeon_lt8912_rst_high>;
+	pinctrl-19 = <&aeon_hdmi_hpd_state>;
+	pinctrl-20 = <&aeon_wireless_chg_en_low>;
+	pinctrl-21 = <&aeon_wireless_chg_en_high>;
+	pinctrl-22 = <&aeon_usb_sw_low>;
+	pinctrl-23 = <&aeon_usb_sw_high>;
+	pinctrl-24 = <&aeon_hdmi_usb_sw_low>;
+	pinctrl-25 = <&aeon_hdmi_usb_sw_high>;
+	pinctrl-26 = <&aeon_usbl_charger_state>;
+    status = "okay";
+};
+&pio {
+    aeon_pins_default: aeon@0 {
+    };
+
+    aeon_pins_spk_en0_gpio: aeon@1 {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO30__FUNC_GPIO30>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+    aeon_pins_spk_en1_gpio: aeon@2 {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO30__FUNC_GPIO30>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+	aeon_pins_sim_rst_low_gpio: aeon@3 {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO148__FUNC_GPIO148>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+	aeon_pins_sim_rst_high_gpio: aeon@4 {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO148__FUNC_GPIO148>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+	aeon_sil9022_hdmi_pwren_low:aeon@5 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO126__FUNC_GPIO126>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_sil9022_hdmi_pwren_high: aeon@6 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO126__FUNC_GPIO126>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_keyboardlight_gpio_low:aeon@7 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO28__FUNC_GPIO28>;
+			slew-rate = <1>;
+			bias-disable;
+			output-low;
+			input-schmitt-enable = <0>;
+		};
+	};
+	aeon_keyboardlight_gpio_pwm:aeon@8 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO28__FUNC_PWM_0>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	aeon_fusb301a_sw_en_low:aeon@9 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO130__FUNC_GPIO130>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_fusb301a_sw_en_high: aeon@10 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO130__FUNC_GPIO130>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_fusb301a_sw_sel_low:aeon@11 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO145__FUNC_GPIO145>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_fusb301a_sw_sel_high: aeon@12 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO145__FUNC_GPIO145>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_usbl_chg_en_low:aeon@13 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO34__FUNC_GPIO34>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_usbl_chg_en_high: aeon@14 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO34__FUNC_GPIO34>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_lt8912_pwren_low:aeon@15 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO18__FUNC_GPIO18>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_lt8912_pwren_high: aeon@16 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO18__FUNC_GPIO18>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_lt8912_rst_low:aeon@17 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO29__FUNC_GPIO29>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_lt8912_rst_high: aeon@18 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO29__FUNC_GPIO29>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_hdmi_hpd_state: aeon@19 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO98__FUNC_GPIO98>;
+			slew-rate = <0>;
+			bias-disable;
+        };
+    };
+	aeon_wireless_chg_en_low:aeon@20 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO99__FUNC_GPIO99>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_wireless_chg_en_high: aeon@21 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO99__FUNC_GPIO99>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_usb_sw_low:aeon@22 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO13__FUNC_GPIO13>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_usb_sw_high: aeon@23 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO13__FUNC_GPIO13>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_hdmi_usb_sw_low:aeon@24 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO127__FUNC_GPIO127>;
+			slew-rate = <1>;
+			output-low;
+		};
+    };
+    aeon_hdmi_usb_sw_high: aeon@25 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO127__FUNC_GPIO127>;
+			slew-rate = <1>;
+			output-high;
+        };
+    };
+	aeon_usbl_charger_state: aeon@26 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO17__FUNC_GPIO17>;
+			slew-rate = <0>;
+			bias-disable;
+        };
+    };
+};

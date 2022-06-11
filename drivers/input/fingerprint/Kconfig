@@ -1,0 +1,33 @@
+#
+#Fingerprint
+#
+menu "Fingerprint support"
+	depends on INPUT
+
+config MTK_FINGERPRINT_SUPPORT
+	bool "Mediatek Fingerprint"
+	default n
+	help
+	  Fingerprint mtk driver enable/disable
+	  in the kernel.Say Y here if you want to
+	  use mediatek fingerprint driver,fingerprint
+	  driver will support fingerprint function
+
+config CDFINGERPRINT_FP
+    bool "cd Fingerprint fp"
+    default n
+    ---help---
+    cd fingerprint chip.	  
+	  
+config MTK_FINGERPRINT_SELECT
+	string "sensor type"
+	default "NA"
+
+
+endmenu
+config MTK_SIMSWAP_AW6302
+        tristate "aw6302_driver"
+        default y
+        help
+           aw6302_driver
+source "drivers/input/fingerprint/aw6302_driver/Kconfig"

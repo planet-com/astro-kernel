@@ -1,0 +1,1 @@
+obj-y	+= aeon_gpio.o
